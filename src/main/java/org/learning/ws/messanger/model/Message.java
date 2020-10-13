@@ -12,8 +12,8 @@ public class Message {
 	private String message;
 	private String author;
 	private Date created;
-	private Message messages;
-	Message(){
+	/*private Message messages;
+	public Message(){
 		
 	}
 	private Message(Builder builder) {
@@ -43,6 +43,15 @@ public class Message {
 	public Date getCreated() {
 		return created;
 	}
+	*/
+	
+
+	@Override
+	public String toString() {
+		return "Message [id=" + id + ", message=" + message + ", author=" + author + ", created=" + created + "]";
+	}
+
+/*
 
 	@XmlRootElement(name = "Message")
 	@XmlType(name = "Builder")
@@ -84,8 +93,8 @@ public class Message {
 		public Message build() {
 			return new Message(this);
 		}
-	}
-	/*Message() {
+	}*/
+	public Message() {
 		
 	}
 	
@@ -126,5 +135,5 @@ public class Message {
 
 	public void setCreated(Date created) {
 		this.created = created;
-	}*/
+	}
 }

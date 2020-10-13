@@ -10,14 +10,14 @@ import org.learning.ws.messanger.model.Message;
 
 public class MessageService {
 	
-	private Map<Long, Message> messages = DatabaseClass.getMessages();
+	private static Map<Long, Message> messages = DatabaseClass.getMessages();
 	
 	
 	  public MessageService() {
-		  /*messages.put(1L, new Message(1,"Hello World!","satish",new Date())); 
-		  messages.put(2L, new Message(1,"Hello Jersey!","ashish",new Date())); 
-		  messages.put(3L, new Message(1,"Hello JAX-RS!","manish",new Date())); */
-		  messages.put(1L, new Message.Builder()
+		  messages.put(1L, new Message(1,"Hello World!","satish",new Date())); 
+		  messages.put(2L, new Message(2,"Hello Jersey!","ashish",new Date())); 
+		  messages.put(3L, new Message(3,"Hello JAX-RS!","manish",new Date())); 
+		  /*messages.put(1L, new Message.Builder()
 				  .id(1L)
 				  .message("Hello World!")
 				  .author("satish")
@@ -34,7 +34,7 @@ public class MessageService {
 				  .message("Hello JAX-RS!")
 				  .author("kavya")
 				  .created(new Date())
-				  .build());
+				  .build());*/
 	  }
 	 
 	public List<Message> getAllMessages(){
@@ -46,8 +46,7 @@ public class MessageService {
 	}
 	
 	public Message addMessage(Message message) {
-		//message.setId(messages.size()+1);
-		message = new Message.Builder().messages(message).id(messages.size()+1).build();
+		message.setId(messages.size()+1);
 		messages.put(message.getId(),message);
 		return message;
 	}
